@@ -486,6 +486,6 @@ function renderTable(data, viewType){
 function loadAbout(){
   console.log("loading about");
    $('#pageTitle').html('About');
-  $('#data').html($('#about_template').html());
+  $('#data').html($('#about_template'));
   $('#map').hide(); 
 }

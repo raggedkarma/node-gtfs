@@ -1,5 +1,5 @@
 module.exports = {
-    mongo_node_host: process.env.MONGOHQ_URL || 'localhost'
+    mongo_node_host: 'localhost'
   , mongo_node_database: 'gtfs'
   , agencies: [
         'mta-new-york-city-transit'

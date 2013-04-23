@@ -105,7 +105,7 @@ Returns all agencies that serve the 100 nearest stops within the specified radiu
 <pre><code>/api/routes/:agency
 
 //Example
-/api/routes/san-francisco-municipal-transportation-agency
+/api/routes/mta-new-york-city-transit/
 </code></pre>
 
 <h3>
@@ -126,7 +126,7 @@ Returns all routes that stop at the 100 nearest stops within the specified radiu
 <pre><code>/api/stops/:agency/:route_id/:direction_id
 
 //Example
-/api/stops/san-francisco-municipal-transportation-agency/34/1
+/api/stops/mta-new-york-city-transit/3/1
 </code></pre>
 
 <p><code>:direction_id</code> is optional</p>
@@ -137,7 +137,7 @@ Returns all routes that stop at the 100 nearest stops within the specified radiu
 <pre><code>/api/stopsNearby/:lat/:lon/:radius
 
 //Example
-/api/StopsNearby/37.73/-122.25/0.25
+/api/stopsNearby/43.0946/-79.05661/5
 </code></pre>
 
 <p><code>:radius</code> is optional and in miles.  Default: 1 mile
@@ -149,7 +149,7 @@ Returns the 100 nearest stops within the specified radius</p>
 <pre><code>/api/times/:agency/:route_id/:stop_id/:direction_id
 
 //Example
-/api/times/san-francisco-municipal-transportation-agency/34/1256/0
+/api/times/mta-new-york-city-transit/3/302S/1
 </code></pre>
 
 <p><code>:direction_id</code> is optional</p>

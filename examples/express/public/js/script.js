@@ -487,5 +487,6 @@ function loadAbout(){
   console.log("loading about");
    $('#pageTitle').html('About');
   $('#data').html($('#about_template').html());
+  $("#locationForm").hide();
   $('#map').hide(); 
 }

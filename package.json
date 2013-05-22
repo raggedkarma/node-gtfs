@@ -23,7 +23,7 @@
     , "underscore": ">= 1.4.4"
   },
   "scripts": {
-    "install": "node scripts/download.js"
+    // "install": "node scripts/download.js"
   },
   "keywords": ["transit","gtfs","transportation"],
   "repository": "git://github.com/yono38/node-gtfs.git",

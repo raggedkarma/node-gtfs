@@ -1,19 +1,19 @@
 [![build status](https://secure.travis-ci.org/cobralibre/node-gtfs.png)](http://travis-ci.org/cobralibre/node-gtfs)
 #Node-GTFS
 
-node-GTFS loads transit data in [GTFS format](https://developers.google.com/transit/) from [GTFS Data Exchange](http://www.gtfs-data-exchange.com/), unzips it and stores it to a MongoDB database and provides some methods to query for agencies, routes, stops and times.  It also has spatial queries to find nearby stops, routes and agencies.
+node-GTFS loads transit data in [GTFS format](https://developers.google.com/transit/) from [GTFS Data Exchange](http://www.gtfs-data-exchange.com/), unzips it, stores it to a MongoDB database, and provides some methods to query for agencies, routes, stops and times.  It also has spatial queries to find nearby stops, routes and agencies.
 
 ##Configuration for loading data
 
-Before you can use node-GTFS you must specify agencies to download from GTFS Data Exchange. You need the dataexchange_id for each agency you want to include from [GTFS Data Exchange](http://www.gtfs-data-exchange.com/) - it is in the URL of each individual transit agency's page.
+Before you can use node-GTFS, you must specify agencies to download from GTFS Data Exchange. You need the `dataexchange_id` for each agency you want to include from [GTFS Data Exchange](http://www.gtfs-data-exchange.com/). Find it in the URL of each individual transit agency's page.
 
 A full list of agencies is available via the [GTFS Data Exchange API](http://www.gtfs-data-exchange.com/api/agencies).
 
-For example, Austin Capital Metro is `capital-metro`, Washington DC is `wmata`.
+For example, Austin Capital Metro is `capital-metro`; Washington DC is `wmata`.
 
 Add the list of agency keys you'd like to support to config.js as an array called `agencies`
 
-The mongodb URI is also configured in config.js
+The MongoDB URI is also configured in config.js.
 
 ###To load data
 
@@ -23,7 +23,7 @@ To keep schedules up to date, you might want to schedule this to occur once per 
 
 ##Example Application
 
-There is an example web app that creates some restful API endpoints and has a simple frontend for viewing transit data.  It is in examples/express.  You could load the example site with:
+There is an example web app that creates some restful API endpoints and has a simple frontend for viewing transit data.  It is in examples/express.  You can load the example site with:
 
     $ node ./examples/express/index.js
 
@@ -39,49 +39,49 @@ There is an example web app that creates some restful API endpoints and has a si
     
     //Example
     /api/agenciesNearby/37.73/-122.25/10
-`:radius` is optional and in miles.  Default: 25 miles
-Returns all agencies that serve the 100 nearest stops within the specified radius
+`:radius` is optional and in miles.  Default: 25 miles. 
+Returns all agencies that serve the 100 nearest stops within the specified radius.
 
 ###List routes for an agency
 
     /api/routes/:agency
     
     //Example
-    /api/routes/san-francisco-municipal-transportation-agency
+    /api/routes/capital-metro
 
 ###List routes near a point
 
     /api/routesNearby/:lat/:lon/:radius
     
     //Example
-    /api/routesNearby/37.73/-122.25/0.25
-`:radius` is optional and in miles.  Default: 1 mile
-Returns all routes that stop at the 100 nearest stops within the specified radius
+    /api/routesNearby/30.2747/-97.74035/0.25
+`:radius` is optional and in miles.  Default: 1 mile. 
+Returns all routes that stop at the 100 nearest stops within the specified radius.
 
 ###List stops for a route
 
     /api/stops/:agency/:route_id/:direction_id
     
     //Example
-    /api/stops/san-francisco-municipal-transportation-agency/34/1
-`:direction_id` is optional
+    /api/stops/capital-metro/1001/1
+`:direction_id` is optional. For Capital Metro, Northbound is `0`, Southbound is `1`, Westbound is `0`, and Eastbound is `1`.
 
 ###List stops near a point
 
     /api/stopsNearby/:lat/:lon/:radius
     
     //Example
-    /api/StopsNearby/37.73/-122.25/0.25
-`:radius` is optional and in miles.  Default: 1 mile
-Returns the 100 nearest stops within the specified radius
+    /api/stopsNearby/30.2747/-97.74035/2
+`:radius` is optional and in miles.  Default: 1 mile. 
+Returns the 100 nearest stops within the specified radius.
 
 ###List stop times for a stop
 
     /api/times/:agency/:route_id/:stop_id/:direction_id
     
     //Example
-    /api/times/san-francisco-municipal-transportation-agency/34/1256/0
-`:direction_id` is optional
+    /api/times/capital-metro/1001/611/1
+`:direction_id` is optional. For Capital Metro, Northbound is `0`, Southbound is `1`, Westbound is `0`, and Eastbound is `1`.
 
 
 ## About this fork

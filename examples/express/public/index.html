@@ -76,7 +76,7 @@
   </div> <!-- /container -->
   
   <script id="about_template" type="text/template">
-    <p> This sample application is meant to give a graphical representation of some of the data that can be accessed using this web api. The static MTA data is usually hosted in large GTFS files, so this API is built upon <a href="https://github.com/brendannee/node-gtfs">Node-GTFS</a> to allow hackathon partipants to easily access just the parts of the data they need, in a format built for the web (JSON).</p>
+    <p> This sample application is meant to give a graphical representation of some of the data that can be accessed using this web api. The static Capital Metro data is usually hosted in large GTFS files, so this API is built upon <a href="https://github.com/brendannee/node-gtfs">Node-GTFS</a> to allow hackathon partipants to easily access just the parts of the data they need, in a format built for the web (JSON).</p>
 
 <h2>
 <a name="endpoints" class="anchor" href="#endpoints"><span class="mini-icon mini-icon-link"></span></a>Endpoints</h2>
@@ -105,7 +105,7 @@ Returns all agencies that serve the 100 nearest stops within the specified radiu
 <pre><code>/api/routes/:agency
 
 //Example
-/api/routes/mta-new-york-city-transit/
+/api/routes/capital-metro/
 </code></pre>
 
 <h3>
@@ -114,7 +114,7 @@ Returns all agencies that serve the 100 nearest stops within the specified radiu
 <pre><code>/api/routesNearby/:lat/:lon/:radius
 
 //Example
-/api/routesNearby/37.73/-122.25/0.25
+/api/routesNearby/30.2747/-97.74035/0.25
 </code></pre>
 
 <p><code>:radius</code> is optional and in miles.  Default: 1 mile
@@ -126,7 +126,7 @@ Returns all routes that stop at the 100 nearest stops within the specified radiu
 <pre><code>/api/stops/:agency/:route_id/:direction_id
 
 //Example
-/api/stops/mta-new-york-city-transit/3/1
+/api/stops/capital-metro/1001/1
 </code></pre>
 
 <p><code>:direction_id</code> is optional</p>
@@ -137,7 +137,7 @@ Returns all routes that stop at the 100 nearest stops within the specified radiu
 <pre><code>/api/stopsNearby/:lat/:lon/:radius
 
 //Example
-/api/stopsNearby/43.0946/-79.05661/5
+/api/stopsNearby/30.2747/-97.74035/2
 </code></pre>
 
 <p><code>:radius</code> is optional and in miles.  Default: 1 mile
@@ -149,7 +149,7 @@ Returns the 100 nearest stops within the specified radius</p>
 <pre><code>/api/times/:agency/:route_id/:stop_id/:direction_id
 
 //Example
-/api/times/mta-new-york-city-transit/3/302S/1
+/api/times/capital-metro/1001/611/1
 </code></pre>
 
 <p><code>:direction_id</code> is optional</p>

@@ -1,6 +1,6 @@
 {
-  "name": "mta-gtfs-webapi",
-  "description": "View MTA GTFS Data online",
+  "name": "capital-metro-gtfs-webapi",
+  "description": "View Cap Metro GTFS Data online",
   "version": "0.1",
   "author": "Jason Schapiro <yono38@gmail.com>",
   "dependencies": {

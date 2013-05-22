@@ -9,7 +9,7 @@ Before you can use node-GTFS you must specify agencies to download from GTFS Dat
 
 A full list of agencies is available via the [GTFS Data Exchange API](http://www.gtfs-data-exchange.com/api/agencies).
 
-For example, Austin Capital Metro is `capital-area-transit`, Washington DC is `wmata`.
+For example, Austin Capital Metro is `capital-metro`, Washington DC is `wmata`.
 
 Add the list of agency keys you'd like to support to config.js as an array called `agencies`
 
@@ -83,6 +83,10 @@ Returns the 100 nearest stops within the specified radius
     /api/times/san-francisco-municipal-transportation-agency/34/1256/0
 `:direction_id` is optional
 
+
+## About this fork
+
+This fork of node-GTFS currently only provides minimal changes to get the database loader working with MongoHQ, and it's probably not very robust. It also defaults to using Austin's Capital Metro transit service.
 
 ## License
 

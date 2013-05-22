@@ -20,6 +20,8 @@ var url = require('url')
   , dbName = process.env['MONGO_NODE_DATABASE'] || config.mongo_node_database
   , host = process.env['MONGO_NODE_HOST'] || config.mongo_node_host
   , port = process.env['MONGO_NODE_PORT'] || config.mongo_node_port || Connection.DEFAULT_PORT
+  , username = config.mongo_node_username || null
+  , password = config.mongo_node_password || null
   , db = new Db(dbName, new Server(host, port, {safe: false}))
   , q;
 
@@ -81,6 +83,10 @@ if(!config.agencies){
 
 //open database and create queue for agency list
 db.open(function(err, db) { 
+  //authenticate if necessary
+  if (username !== null && password !== null) {
+    db.authenticate(username, password);
+  }
   q = async.queue(downloadGTFS, 1);
   //loop through all agencies specified
   config.agencies.forEach(function(agency_key){
@@ -111,6 +117,7 @@ function downloadGTFS(task, cb){
   async.series([
     cleanupFiles,
     downloadFiles,
+    // Comment out the following for the initial DB load
     removeDatabase,
     importFiles,
     postProcess,

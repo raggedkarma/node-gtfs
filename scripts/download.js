@@ -180,6 +180,7 @@ function downloadGTFS(task, cb){
 
   function removeDatabase(cb){
     //remove old db records based on agency_key
+    //TODO: skip if collection does not exist
     async.forEach(GTFSFiles, function(GTFSFile, cb){
       db.collection(GTFSFile.collection, function(e, collection){
         collection.remove({ agency_key: agency_key }, {safe: true}, cb);

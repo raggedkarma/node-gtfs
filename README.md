@@ -17,7 +17,7 @@ The mongodb URI is also configured in config.js
 
 ###To load data
 
-    npm run-script download
+    $ npm run-script download
 
 To keep schedules up to date, you might want to schedule this to occur once per day.
 
@@ -25,7 +25,7 @@ To keep schedules up to date, you might want to schedule this to occur once per 
 
 There is an example web app that creates some restful API endpoints and has a simple frontend for viewing transit data.  It is in examples/express.  You could load the example site with:
 
-    node ./examples/express/index.js
+    $ node ./examples/express/index.js
 
 ##Endpoints
 
@@ -86,15 +86,34 @@ Returns the 100 nearest stops within the specified radius
 
 ## About this fork
 
-This fork of node-GTFS currently only provides minimal changes to get the database loader working with Heroku and MongoHQ, and it's probably not very robust. It also defaults to using Austin's Capital Metro transit service.
+This fork of node-GTFS currently only provides minimal changes to get the database loader working with MongoHQ and to deploy the example application to Heroku, and it also defaults to using Austin's Capital Metro transit service. It may not be very robust.
 
 ### Getting this to work with Heroku and MongoHQ
 
-It should go without saying that you should enable the MongoHQ add-on for your Heroku app.
+Use the Heroku [node.js](instructions|https://devcenter.heroku.com/articles/nodejs) to get started.
 
-Using your MongoHQ control panel, create a DB user and figure out your MongoDB URL. Export that URL as a MONGOHQ_URL environment variable. At around line 120 of scripts/download.js, look for a comment reading `// Comment out the following line for the initial DB load`. Temporarily comment out the following line and then execute the script: `npm script download`
+    # Log in
+    $ heroku login
+    # Install dependencies locally
+    $ npm install
+    # Create the Heroku app
+    $ heroku create
+    # Add MongoHQ to your app
+    $ heroku addons:add mongohq:sandbox
+    
+Using your MongoHQ control panel, create a DB user and figure out your MongoDB URL. Export that URL as a MONGOHQ_URL environment variable. At around line 120 of scripts/download.js, look for a comment reading `// Comment out the following line for the initial DB load`. Temporarily comment out the following line (this will be fixed later) and then execute the download script:
 
-Re-do the above whenever you need to refresh the database.
+    $ npm script download
+
+Re-run the download script whenever you need to refresh the database.
+To finish deploying to Heroku:
+
+    # Make any changes and test your app
+    $ foreman start
+    # Commit your changes
+    $ git commit -m "Added auto-kitten detection"
+    # Push changes to Heroku
+    $ git push heroku master
 
 ## License
 

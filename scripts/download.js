@@ -117,7 +117,7 @@ function downloadGTFS(task, cb){
   async.series([
     cleanupFiles,
     downloadFiles,
-    // Comment out the following for the initial DB load
+    // Comment out the following line for the initial DB load
     removeDatabase,
     importFiles,
     postProcess,

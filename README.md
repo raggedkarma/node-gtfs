@@ -86,7 +86,15 @@ Returns the 100 nearest stops within the specified radius
 
 ## About this fork
 
-This fork of node-GTFS currently only provides minimal changes to get the database loader working with MongoHQ, and it's probably not very robust. It also defaults to using Austin's Capital Metro transit service.
+This fork of node-GTFS currently only provides minimal changes to get the database loader working with Heroku and MongoHQ, and it's probably not very robust. It also defaults to using Austin's Capital Metro transit service.
+
+### Getting this to work with Heroku and MongoHQ
+
+It should go without saying that you should enable the MongoHQ add-on for your Heroku app.
+
+Using your MongoHQ control panel, create a DB user and figure out your MongoDB URL. Export that URL as a MONGOHQ_URL environment variable. At around line 120 of scripts/download.js, look for a comment reading `// Comment out the following line for the initial DB load`. Temporarily comment out the following line and then execute the script: `npm script download`
+
+Re-do the above whenever you need to refresh the database.
 
 ## License
 

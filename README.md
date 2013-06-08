@@ -17,7 +17,7 @@ The MongoDB URI is also configured in config.js.
 
 ###To load data
 
-    $ npm run-script download
+    node ./scripts/download
 
 To keep schedules up to date, you might want to schedule this to occur once per day.
 
@@ -84,40 +84,34 @@ Returns the 100 nearest stops within the specified radius.
 `:direction_id` is optional. For Capital Metro, Northbound is `0`, Southbound is `1`, Westbound is `0`, and Eastbound is `1`.
 
 
-## About this fork
+##Hosting the Example App with Heroku and MongoHQ
 
-This fork of node-GTFS currently only provides minimal changes to get the database loader working with MongoHQ and to deploy the example application to Heroku, and it also defaults to using Austin's Capital Metro transit service. It may not be very robust.
+A `Procfile` is already in the repo pointing to the example app in `examples/express`.
 
-### Getting this to work with Heroku and MongoHQ
+Create app on Heroku
 
-Use the Heroku [node.js instructions](https://devcenter.heroku.com/articles/nodejs) to get started.
+    $ heroku apps:create YOURAPPNAME
 
-    # Log in
-    $ heroku login
-    # Install dependencies locally
-    $ npm install
-    # Create the Heroku app
-    $ heroku create
-    # Add MongoHQ to your app
+Add MongoHQ to your app
+
     $ heroku addons:add mongohq:sandbox
-    
-Using your MongoHQ control panel, create a DB user and figure out your MongoDB URL. Export that URL as a MONGOHQ_URL environment variable. At around line 120 of scripts/download.js, look for a comment reading `// Comment out the following line for the initial DB load`. Temporarily comment out the following line (this will be fixed later) and then execute the download script:
 
-    $ npm run-script download
+MONGOHQ creates a user, database and exports it as a MONGOHQ_URL environment variable.
+
+Push your app to Heroku
+
+    $ git push heroku master
+
+Execute the download script to populate the database with the agency data specified in config.js
+
+    $ run node ./scripts/download
+
+
+##Pulling in updated transit data
 
 Re-run the download script whenever you need to refresh the database.
 
-If you want to test a local copy:
-
-    $ mongod
-    $ foreman start
-
-To finish deploying to Heroku:
-
-    # Commit your changes
-    $ git commit -m "Added auto-kitten detection"
-    # Push changes to Heroku
-    $ git push heroku master
+    $ npm run node ./scripts/download
 
 ## License
 

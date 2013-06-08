@@ -5,6 +5,7 @@ try {
   console.log(e)
 }
 
+console.log('doing something');
 var url = require('url')
   , request = require('request')
   , exec = require('child_process').exec
@@ -85,6 +86,7 @@ if(!config.agencies){
 db.open(function(err, db) { 
   //authenticate if necessary
   if (username !== null && password !== null) {
+    console.log('authenticating');
     db.authenticate(username, password);
   }
   q = async.queue(downloadGTFS, 1);

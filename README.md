@@ -106,10 +106,13 @@ Using your MongoHQ control panel, create a DB user and figure out your MongoDB U
     $ npm script download
 
 Re-run the download script whenever you need to refresh the database.
-To finish deploying to Heroku:
 
-    # Make any changes and test your app
+If you want to test a local copy:
+
+    $ mongod
     $ foreman start
+
+To finish deploying to Heroku:
     # Commit your changes
     $ git commit -m "Added auto-kitten detection"
     # Push changes to Heroku

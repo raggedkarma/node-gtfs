@@ -103,7 +103,7 @@ Use the Heroku [node.js instructions](https://devcenter.heroku.com/articles/node
     
 Using your MongoHQ control panel, create a DB user and figure out your MongoDB URL. Export that URL as a MONGOHQ_URL environment variable. At around line 120 of scripts/download.js, look for a comment reading `// Comment out the following line for the initial DB load`. Temporarily comment out the following line (this will be fixed later) and then execute the download script:
 
-    $ npm script download
+    $ npm run-script download
 
 Re-run the download script whenever you need to refresh the database.
 
@@ -113,6 +113,7 @@ If you want to test a local copy:
     $ foreman start
 
 To finish deploying to Heroku:
+
     # Commit your changes
     $ git commit -m "Added auto-kitten detection"
     # Push changes to Heroku

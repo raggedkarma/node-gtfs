@@ -111,7 +111,7 @@ Execute the download script to populate the database with the agency data specif
 
 Re-run the download script whenever you need to refresh the database.
 
-    $ npm run node ./scripts/download
+    $ heroku run node ./scripts/download
 
 ## License
 

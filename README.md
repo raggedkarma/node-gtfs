@@ -90,7 +90,7 @@ This fork of node-GTFS currently only provides minimal changes to get the databa
 
 ### Getting this to work with Heroku and MongoHQ
 
-Use the Heroku [node.js](instructions|https://devcenter.heroku.com/articles/nodejs) to get started.
+Use the Heroku [node.js instructions](https://devcenter.heroku.com/articles/nodejs) to get started.
 
     # Log in
     $ heroku login

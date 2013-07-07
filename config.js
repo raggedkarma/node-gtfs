@@ -14,6 +14,6 @@ module.exports = {
   , agencies: [
       /* Put agency_key names from gtfs-data-exchange.com.  
       Optionally, specify a download URL to use a dataset not from gtfs-data-exchange.com */
-      { agency_key: 'capital-metro', url: 'http://www.gtfs-data-exchange.com/agency/capital-metro/latest.zip' }
+      { agency_key: 'oc-transpo', url: 'http://www.gtfs-data-exchange.com/agency/oc-transpo/latest.zip' }
     ]
 }
